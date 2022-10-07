@@ -31,20 +31,28 @@ return (
 <div className='book-list'>
     {books.map((book) => (
         <div key={book.id} className="book">
-            <div>
+           <div>
                 <h4>{book.title}</h4>
             </div>
             <div>
                 <img src={book.image_url} alt="#"/>
             </div>
                 <div>
-                <button onClick={()=>addToFavorite(book)}>Add to Favorite</button>
+                    {favoriteChecker(book.id) ? (
+                <button onClick={() => removeFromFavorite(book.id)}>
+                    remove from Favorite
+                </button>
+                    ) : (
+                <button onClick={()=> addToFavorite(book)}>
+                    Add to Favorite
+                    </button>
+                    )}
                 </div>
         </div>
     ))}
     </div>
 );
-  
-};
+                    
+                    };
 
 export default BookList;

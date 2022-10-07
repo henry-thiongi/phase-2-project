@@ -1,5 +1,6 @@
 import React from 'react';
 import '../App';
+import {Link} from 'react-router-dom';
 
 const Navbar = () => {
   return (
@@ -7,7 +8,11 @@ const Navbar = () => {
         <div>
            <h1>Henry Book App</h1>
         </div>
-        <div>your favorites</div>
+        <div>
+            <Link to='/Favorite'>
+            <h3>your Favorite</h3>
+            </Link>
+        </div>
     </div>
   );
 };
