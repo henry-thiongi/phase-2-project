@@ -1,12 +1,21 @@
 import React,{useState,useEffect} from 'react';
 import '../App';
 import { API_URL } from '../API';
-import axios from 'axios';
+import axios from 'axios'; 
+import { useAppContext } from './context/appContext';
 
 const BookList = () => {
     
     const [books,setBooks] = useState([]);
 
+    const { favorite, addToFavorite, removeFromFavorite } =useAppContext();
+
+    console.log('favorite are', favorite);
+
+    const favoriteChecker = (id) =>{
+        const boolean = favorite.some((book) => book.id === id);
+        return boolean;
+    };
 
     useEffect(()=> {
       axios
@@ -18,15 +27,23 @@ const BookList = () => {
       .catch(err=>console.log(err));
  },[]);
 
-return <div className='book-list'>
-    {books.map((book)=> (
-        <div key={book.id}>
-            <div><h2>{book.title}</h2></div>
-            <div><img src={book.image_url} alt="#"/></div>
-            <div><button>Add to Favorite</button></div>
-    </div>
+return (
+<div className='book-list'>
+    {books.map((book) => (
+        <div key={book.id} className="book">
+            <div>
+                <h4>{book.title}</h4>
+            </div>
+            <div>
+                <img src={book.image_url} alt="#"/>
+            </div>
+                <div>
+                <button onClick={()=>addToFavorite(book)}>Add to Favorite</button>
+                </div>
+        </div>
     ))}
-    </div>;
+    </div>
+);
   
 };
 
