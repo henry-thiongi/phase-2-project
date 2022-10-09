@@ -39,7 +39,7 @@ return (
                 <img 
                 src={book.image_url} 
                 alt="#" 
-                onClick={() => navigate('/books/${book.id}')}
+                onClick={() => navigate(`/books/${book.id}`)}
                 />
             </div>
                 <div>

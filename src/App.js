@@ -1,10 +1,10 @@
-import './App.css';
-import { Routes, Route } from 'react-router-dom';
-import BookList from './components/BookList';
-import BookDetails from './components/BookDetails';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import Favorite from './components/Favorite';
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import BookList from "./components/BookList";
+import BookDetails from "./components/BookDetails";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Favorite from "./components/Favorite";
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         <Route path="/books/:id" element={<BookDetails />} />
         <Route path="/favorite" element={<Favorite />} />
       </Routes>
-        <Footer/>
+      <Footer />
     </div>
   );
 }
