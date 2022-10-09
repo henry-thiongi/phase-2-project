@@ -8,7 +8,7 @@ const Navbar = () => {
         <div>
            <h1>Henry Book App</h1>
         </div>
-        <div>
+        <div>  
             <Link to='/Favorite'>
             <h3>your Favorite</h3>
             </Link>
